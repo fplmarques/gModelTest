@@ -1,5 +1,11 @@
 #!/usr/bin/perl
 #
+# This program uses Garli to select substitution models for phylogenetic analyeses usin Maximum Likelihood 
+# as optimality criterium. As such it requires [Garli](https://code.google.com/archive/p/garli/)
+#
+#  Usage:
+#       $ gmodel_test.pl [option] aligned_sequences.fas
+# 
 system clear;
 use Getopt::Long;
 use POSIX qw(ceil);
@@ -807,15 +813,8 @@ print "       --> The substitution model $Name_of_best_model holds the best AICc
 # $pm->finish;
 }
 print "     ######################################################################\n";
-print "     #                                DONE!                                #\n";
+print "     #                                DONE!                               #\n";
 print "     ######################################################################\n\n";
-#print "     ######################################################################\n";
-#print "     #                             RESULTS                                #\n";
-#print "     ######################################################################\n\n";
-#print "MODEL\tlnL\tK\tAIC\tnK ratio\tAICc\n";
-#foreach $k (keys(%scores)){
-#        print  "$k \t $scores{$k}\t$scores{$k}{'NumberOfParameters_K'}\t$scores{$k}{'AIC_score'}\t$scores{$k}{'nKratio'}\t$scores{$k}{'AICc_score'}\n";
-#}
 $end_run = time();
 $run_time = $end_run - $start_run;
 $run_time_d = int($run_time/(24*60*60));
@@ -839,4 +838,3 @@ print LOG2 "Input File \t Model \t nlL \t K \t AIC \t AICc \t nK Ratio \n";
 print LOG2 "$input_file\.fas\t$Name_of_best_model\t$scores{$Name_of_best_model}\t$scores{$Name_of_best_model}{'NumberOfParameters_K'}\t$scores{$Name_of_best_model}{'AIC_score'}\t$scores{$Name_of_best_model}{'AICc_score'}\t$scores{$Name_of_best_model}{'nKratio'}\n";
 close (LOG2);
 exit();
-v
