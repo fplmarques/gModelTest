@@ -5,3 +5,6 @@ as optimality criterium. As such it requires [Garli](https://code.google.com/arc
 
 ## Usage:
 ``` $ gmodel_test.pl [option] aligned_sequences.fas ```
+### Options:
+-fixed|-fix|-f  -> uses fixed topology to compute ML scores for all 88 substitution model.
+-parallel|-par|-p -> implement parallel execution using 8 cores.
